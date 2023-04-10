@@ -1,8 +1,12 @@
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /*
  * HashMap is a default class in java and comes from java.util package
@@ -118,15 +122,51 @@ class LearnHashMap {
         /*
          * compare on the basis of values of maps using HashSet AND ArrayList
          */
-        // when duplicates are not allowed 
-        // Remember as Map does not preserve order so while conversion to ArrayList to maps might give different outputs.
+        // when duplicates are not allowed
+        // Remember as Map does not preserve order so while conversion to ArrayList to
+        // maps might give different outputs.
         System.out.println(new ArrayList<>(map1.values()).equals(new ArrayList<>(map2.values())));
         System.out.println(new ArrayList<>(map1.values()).equals(new ArrayList<>(map3.values())));
 
         // when duplicates are allowed
         System.out.println(new HashSet<>(map1.values()).equals(new HashSet<>(map2.values())));
         System.out.println(new HashSet<>(map1.values()).equals(new HashSet<>(map3.values())));
+    }
 
+    public void waysToCreateHashMap() {
+        /*
+         * using HashMap class
+         */
+        HashMap<String, String> hashMap = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
+
+        /*
+         * JDK 8
+         * using one 2D-Array and storing the resultant into the map object
+         */
+        Map<String, String> jdk8Map = Stream.of(new String[][] { { "Map1", "Value1" }, { "Map2", "Value2" } })
+                .collect(Collectors.toMap(data -> data[0], data -> data[1]));
+        System.out.println(jdk8Map);
+
+        /*
+         * using SimpleEntry<K, V> : mutuable map
+         * JDK8
+         */
+        Map<String, String> entryMap = Stream.of(
+                new AbstractMap.SimpleEntry<>("Map1", "Value1"),
+                new AbstractMap.SimpleEntry<>("Map2", "Value2"))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        System.out.println(entryMap);
+
+        /*
+         * using SimpleImmutableEntry<K, V> : Immutuable map
+         * JDK8
+         */
+        Map<String, String> immutableMap = Stream.of(
+                new AbstractMap.SimpleImmutableEntry<>("Map1", "Value1"),
+                new AbstractMap.SimpleImmutableEntry<>("Map2", "Value2"))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        System.out.println(immutableMap);
     }
 }
 
@@ -147,5 +187,6 @@ public class HashMapConcepts {
         learnHashMap.hashMapBascis();
         learnHashMap.waysToIterateHashMap(capitals);
         learnHashMap.compareHashMaps();
+        learnHashMap.waysToCreateHashMap();
     }
 }
