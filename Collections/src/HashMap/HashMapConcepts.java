@@ -1,27 +1,34 @@
+package HashMap;
+
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /*
  * HashMap is a default class in java and comes from java.util package
- * Default size of HashMap as soon as you create one is of 16(0-15)buckets.
+ * Default size of HashMap as soon as you create one is of 16(0-15)Buckets/Segments.
  * >>>>>>> Each bucket behaves as a Node which contains various other nodes <<<<<<<<
+ * Default Load factor is (0.75 or 75%) [load factor is the measure that decides when to increase the capacity of the Map]
  * Does not maintain any order of insertion/retrieval
  * Does not use indexing <<<<>>>> instead uses <Key, Value> pairs
  * Key cannot be duplicate <<<<>>>>>
  * <<<<>>>> Multiple null values are allowed but only 1 key is allowed as null. <<<<<>>>>>
  * <<<<<>>>> It is not thread-safe/synchronized
+ * <><><><><><><><><><>ALWAYS USE Interface<K,V> name = new ImplementedClassConstructor<>(); <><><><><><><><><><><><><><><>
+ * for ex. Map<String, String> map = new HashMap<>();
  */
 class LearnHashMap {
 
     public void hashMapBascis() {
-        HashMap<String, String> basicMap = new HashMap<>();
+        Map<String, String> basicMap = new HashMap<>();
         basicMap.put("Mango", "Yellow");
         basicMap.put("Apple", "Red");
 
@@ -45,7 +52,7 @@ class LearnHashMap {
         System.out.println(basicMap.get("Black"));
     }
 
-    public void waysToIterateHashMap(HashMap<String, String> hashMap) {
+    public void waysToIterateHashMap(Map<String, String> hashMap) {
         /*
          * iterate over the keys using keySet
          */
@@ -74,21 +81,21 @@ class LearnHashMap {
     }
 
     public void compareHashMaps() {
-        HashMap<String, String> map1 = new HashMap<>();
+        Map<String, String> map1 = new HashMap<>();
         map1.put("India", "New Delhi");
         map1.put("Uttarakhand", "Dehradun");
         map1.put("Rajasthan", "Jaipur");
         map1.put("Assam", "Dispur");
         map1.put("Punjab", "Chandigarh");
 
-        HashMap<String, String> map2 = new HashMap<>();
+        Map<String, String> map2 = new HashMap<>();
         map2.put("Maharashtra", "New Delhi");
         map2.put("Goa", "Dehradun");
         map2.put("West Bengal", "Jaipur");
         map2.put("Gujarat", "Dispur");
         map2.put("Haryana", "Chandigarh");
 
-        HashMap<String, String> map3 = new HashMap<>();
+        Map<String, String> map3 = new HashMap<>();
         map3.put("India", "New Delhi");
         map3.put("Uttarakhand", "Dehradun");
         map3.put("Rajasthan", "Jaipur");
@@ -137,7 +144,6 @@ class LearnHashMap {
         /*
          * using HashMap class
          */
-        HashMap<String, String> hashMap = new HashMap<>();
         Map<String, String> map = new HashMap<>();
 
         /*
@@ -153,8 +159,8 @@ class LearnHashMap {
          * JDK8
          */
         Map<String, String> entryMap = Stream.of(
-                new AbstractMap.SimpleEntry<>("Map1", "Value1"),
-                new AbstractMap.SimpleEntry<>("Map2", "Value2"))
+                new AbstractMap.SimpleEntry<>("Key1", "Value1"),
+                new AbstractMap.SimpleEntry<>("Key2", "Value2"))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         System.out.println(entryMap);
 
@@ -163,16 +169,38 @@ class LearnHashMap {
          * JDK8
          */
         Map<String, String> immutableMap = Stream.of(
-                new AbstractMap.SimpleImmutableEntry<>("Map1", "Value1"),
-                new AbstractMap.SimpleImmutableEntry<>("Map2", "Value2"))
+                new AbstractMap.SimpleImmutableEntry<>("Key1", "Value1"),
+                new AbstractMap.SimpleImmutableEntry<>("Key2", "Value2"))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         System.out.println(immutableMap);
+    }
+
+    public void synchronizedMapConcepts() {
+        /*
+         * normal unsynchronized HashMap
+         */
+        Map<String, String> unsynchronizedMap = new HashMap<>();
+        unsynchronizedMap.put("Uttarakhand", "Dehradun");
+        unsynchronizedMap.put("Rajasthan", "Jaipur");
+
+        /*
+         * converted above unsynchronized HashMap to synchronized Map using Collections.synchronizedMap()
+         */
+        Map<String, String> synchronizedMap = Collections.synchronizedMap(unsynchronizedMap);
+
+
+        /*
+         * Declared a totally synchronized and concurrent Map using ConcurrentHashMap
+         */
+        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
+        concurrentHashMap.put("Uttarakhand", "Dehradun");
+        concurrentHashMap.put("Rajasthan", "Jaipur");
     }
 }
 
 public class HashMapConcepts {
     public static void main(String[] args) {
-        HashMap<String, String> capitals = new HashMap<>();
+        Map<String, String> capitals = new HashMap<>();
         capitals.put("India", "New Delhi");
         capitals.put("Uttarakhand", "Dehradun");
         capitals.put("Uttar Pradesh", "Prayagraj");
@@ -188,5 +216,6 @@ public class HashMapConcepts {
         learnHashMap.waysToIterateHashMap(capitals);
         learnHashMap.compareHashMaps();
         learnHashMap.waysToCreateHashMap();
+        learnHashMap.synchronizedMapConcepts();
     }
 }
