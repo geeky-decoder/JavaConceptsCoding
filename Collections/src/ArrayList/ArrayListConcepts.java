@@ -1,3 +1,5 @@
+package ArrayList;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -18,11 +20,13 @@ import java.util.stream.Collectors;
  * Actually you will have 0 size which will the physical capacity as soon as you declare an ArrayList in java.
  * Whenever there is some values added to ArrayList its Physical capacity increases and virtual capacity decreases.
  * Should use JAVA GENERICS while declaring an ArrayList so that java knows that it will contain only particular type of elements
+ * <><><><><><><><><><> ALWAYS USE Interface<K,V> name = new ImplementedClassConstructor<>(); <><><><><><><><><><><><><><><>
+ * for ex. List<String> list = new ArrayList<>();
  */
 
 class LearnArrayList {
 
-    public final void waysToIterateArrayList(ArrayList<String> arrayList) {
+    public final void waysToIterateArrayList(List<String> arrayList) {
         int sizeOfList = arrayList.size();
 
         /*
@@ -54,8 +58,8 @@ class LearnArrayList {
         System.out.println("----------");
     }
 
-    public void arrayListMethods(ArrayList<String> arrayList) {
-        ArrayList<String> vegetableNames = new ArrayList<>(Arrays.asList("Potato", "Onion", "Tomato", "Cabbage"));
+    public void arrayListMethods(List<String> arrayList) {
+        List<String> vegetableNames = new ArrayList<>(Arrays.asList("Potato", "Onion", "Tomato", "Cabbage"));
 
         /*
          * to add all the values present in second list to first list
@@ -80,7 +84,7 @@ class LearnArrayList {
          * Returns a shallow copy of this ArrayList instance. (The elements themselves
          * are not copied)
          */
-        ArrayList<String> duplicateList = (ArrayList<String>) arrayList.clone();
+        List<String> duplicateList = (ArrayList<String>) arrayList.clone();
         System.out.println(duplicateList);
 
         /*
@@ -110,7 +114,7 @@ class LearnArrayList {
         duplicateList.remove(8);
         System.out.println(duplicateList);
 
-        ArrayList<Integer> numbersList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        List<Integer> numbersList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         /*
          * for Integer as Generics if we try to use remove method that deletes given
          * element just like in String you will get
@@ -149,7 +153,7 @@ class LearnArrayList {
          * In other words, removes from this list all of its elements that are not
          * contained in the specified collection.
          */
-        ArrayList<String> retainList = new ArrayList<>(Arrays.asList("Circle", "Oval", "Square", "Circle", "Traingle"));
+        List<String> retainList = new ArrayList<>(Arrays.asList("Circle", "Oval", "Square", "Circle", "Traingle"));
         /*
          * Collections.singleton -> Returns an immutable set containing only the
          * specified object.
@@ -163,7 +167,7 @@ class LearnArrayList {
          * inclusive, and toIndex, exclusive.
          * (If fromIndex and toIndex are equal, the returned list is empty.)
          */
-        ArrayList<String> subList = new ArrayList<>(duplicateList.subList(2, 5));
+        List<String> subList = new ArrayList<>(duplicateList.subList(2, 5));
         System.out.println(subList);
 
         /*
@@ -184,7 +188,7 @@ class LearnArrayList {
         }
     }
 
-    public void synchornizedArrayList(ArrayList<String> arrayList) {
+    public void synchornizedArrayList(List<String> arrayList) {
         /*
          * Returns a synchronized (thread-safe) list backed by the specified list.
          * for add/remove we don't need explicit synchronization
@@ -216,12 +220,12 @@ class LearnArrayList {
         System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
     }
 
-    public void removeDuplicates(ArrayList<String> arrayList) {
+    public void removeDuplicates(List<String> arrayList) {
         /*
          * Use LinkedHashSet >>>>>>>>> Reason being Set contains unique elements
          */
         LinkedHashSet<String> hashSet = new LinkedHashSet<>(arrayList);
-        ArrayList<String> uniqueElementsList = new ArrayList<>(hashSet);
+        List<String> uniqueElementsList = new ArrayList<>(hashSet);
         System.out.println(uniqueElementsList);
         System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
 
@@ -229,7 +233,7 @@ class LearnArrayList {
          * Use Streams >>>>>>>>> Streams has the distinct method which only keeps unique
          * elements
          */
-        ArrayList<String> listOfUniqueElements = (ArrayList<String>) arrayList.stream().distinct()
+        List<String> listOfUniqueElements = (ArrayList<String>) arrayList.stream().distinct()
                 .collect(Collectors.toList());
         System.out.println(listOfUniqueElements);
         System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
@@ -239,9 +243,9 @@ class LearnArrayList {
         /*
          * use list equals method
          */
-        ArrayList<String> list1 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript"));
-        ArrayList<String> list2 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript", "C#"));
-        ArrayList<String> list3 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript"));
+        List<String> list1 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript"));
+        List<String> list2 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript", "C#"));
+        List<String> list3 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript"));
 
         System.out.println(list1.equals(list2));
         System.out.println(list1.equals(list3));
@@ -250,9 +254,9 @@ class LearnArrayList {
          * find the additional elements if the resultant list is empty that means given
          * lists are equals else not
          */
-        ArrayList<String> list4 = new ArrayList<>(
+        List<String> list4 = new ArrayList<>(
                 Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript", "Ruby"));
-        ArrayList<String> list5 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript", "C#"));
+        List<String> list5 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript", "C#"));
         list4.removeAll(list5);
         System.out.println(list4);
         System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
@@ -260,8 +264,8 @@ class LearnArrayList {
          * find the missing elements if the resultant list is empty that means given
          * lists are equals else not
          */
-        ArrayList<String> list6 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript"));
-        ArrayList<String> list7 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript", "C#"));
+        List<String> list6 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript"));
+        List<String> list7 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript", "C#"));
         list7.removeAll(list6);
         System.out.println(list7);
         System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
@@ -269,8 +273,8 @@ class LearnArrayList {
          * find the common elements if the resultant list is empty that means given
          * lists ! are not equal else not
          */
-        ArrayList<String> list8 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript"));
-        ArrayList<String> list9 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript", "C#"));
+        List<String> list8 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript"));
+        List<String> list9 = new ArrayList<>(Arrays.asList("Java", "Python", "Kotlin", "GO", "JavaScript", "C#"));
         list9.retainAll(list8);
         System.out.println(list9);
         System.out.println("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=");
@@ -282,7 +286,7 @@ public class ArrayListConcepts {
         /*
          * ArrayList with Generics as String
          */
-        ArrayList<String> fruitNames = new ArrayList<>();
+        List<String> fruitNames = new ArrayList<>();
         fruitNames.add("Apple");
         fruitNames.add("Banana");
         fruitNames.add("Grapes");
