@@ -1,4 +1,4 @@
-package HashMap;
+package Map;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -6,7 +6,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -24,6 +26,9 @@ import java.util.stream.Stream;
  * <<<<<>>>> It is not thread-safe/synchronized
  * <><><><><><><><><><>ALWAYS USE Interface<K,V> name = new ImplementedClassConstructor<>(); <><><><><><><><><><><><><><><>
  * for ex. Map<String, String> map = new HashMap<>();
+ * 
+ * ************************** LINKEDHASHMAP ***************************
+ * Maintains any order of insertion/retrieval [stores value in form of Node(doubly linkedlist)]
  */
 class LearnHashMap {
 
@@ -184,10 +189,10 @@ class LearnHashMap {
         unsynchronizedMap.put("Rajasthan", "Jaipur");
 
         /*
-         * converted above unsynchronized HashMap to synchronized Map using Collections.synchronizedMap()
+         * converted above unsynchronized HashMap to synchronized Map using
+         * Collections.synchronizedMap()
          */
         Map<String, String> synchronizedMap = Collections.synchronizedMap(unsynchronizedMap);
-
 
         /*
          * Declared a totally synchronized and concurrent Map using ConcurrentHashMap
@@ -195,6 +200,24 @@ class LearnHashMap {
         ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
         concurrentHashMap.put("Uttarakhand", "Dehradun");
         concurrentHashMap.put("Rajasthan", "Jaipur");
+    }
+
+    public void convertHashMapToArrayList(Map<String, String> map) {
+        /*
+         * convert using Java 8 Stream
+         */
+        List<String> keyList = map.keySet().stream().collect(Collectors.toList());
+        System.out.println(keyList);
+
+        List<String> valueList = map.values().stream().collect(Collectors.toList());
+        System.out.println(valueList);
+
+        /*
+         * entrySet method to convert but also to retain the key/value pair
+         */
+        Set<Map.Entry<String, String>> mapSet = map.entrySet();
+        List<Map.Entry<String, String>> mapToList = new ArrayList<>(mapSet);
+        System.out.println(mapToList);
     }
 }
 
@@ -217,5 +240,6 @@ public class HashMapConcepts {
         learnHashMap.compareHashMaps();
         learnHashMap.waysToCreateHashMap();
         learnHashMap.synchronizedMapConcepts();
+        learnHashMap.convertHashMapToArrayList(capitals);
     }
 }
