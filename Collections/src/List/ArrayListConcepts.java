@@ -1,4 +1,4 @@
-package ArrayList;
+package List;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,7 +58,7 @@ class LearnArrayList {
         System.out.println("----------");
     }
 
-    public void arrayListMethods(List<String> arrayList) {
+    public void arrayListMethods(ArrayList<String> arrayList) {
         List<String> vegetableNames = new ArrayList<>(Arrays.asList("Potato", "Onion", "Tomato", "Cabbage"));
 
         /*
@@ -286,7 +286,7 @@ public class ArrayListConcepts {
         /*
          * ArrayList with Generics as String
          */
-        List<String> fruitNames = new ArrayList<>();
+        ArrayList<String> fruitNames = new ArrayList<>();
         fruitNames.add("Apple");
         fruitNames.add("Banana");
         fruitNames.add("Grapes");
