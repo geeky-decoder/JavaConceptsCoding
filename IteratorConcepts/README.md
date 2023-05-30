@@ -7,9 +7,13 @@ Collection interface extends the Iterable interface because each collection want
 Collection Interface Methods
 -----------------------------
 boolean addAll(Collection<? extends E> C)
+
 boolean retainAll(Collection<?> C)
+
 boolean containsAll(Collection<?> C)
+
 boolean removeAll(Collection<?> C)
+
 void clear()
 
 Iterable
@@ -28,7 +32,10 @@ Iterator
 
 Methods available :
 -----------------
--> void forEachRemaining(Consumer<? super T> action)
--> boolean hasNext()
--> T next()
--> void remove()
+void forEachRemaining(Consumer<? super T> action)
+
+boolean hasNext()
+
+T next()
+
+void remove()
