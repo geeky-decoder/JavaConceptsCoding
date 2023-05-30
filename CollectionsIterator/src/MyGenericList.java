@@ -3,9 +3,8 @@ import java.util.function.Consumer;
 
 // My List class to create my own list collection to use with custom implementation
 public class MyGenericList<T> implements Iterable<T> {
-
-    // Every collection is backed by some data structure so as we r using Array for
-    // List collection
+    
+    // Every collection is backed by some data structure so as we r using Array for List collection
     private T[] listItems;
     private int listSize;
 
@@ -31,7 +30,7 @@ public class MyGenericList<T> implements Iterable<T> {
         }
     }
 
-    // My List class iterator with custom implementation
+    // My List class iterator with custom implementation 
     class MyGenericListIterator implements Iterator<T> {
 
         private MyGenericList<T> list;

@@ -3,7 +3,6 @@ package List;
 import List.LearnLinkedList.Node;
 
 /*
-
  * LinkedList is a class which implements List as well as Queue Interface, therefore it has methods of both interfaces 
  * LinkedList consists of Nodes where each node contains data and address of next node(Singly LL)
  * Can be used as List, Stack and Queue

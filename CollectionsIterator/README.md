@@ -1,4 +1,3 @@
-
 Collection and iterable/iterators concepts
 ---------------------------------
 -> By implementing these interfaces, classes can be made iterable, allowing for easy iteration over their elements.
