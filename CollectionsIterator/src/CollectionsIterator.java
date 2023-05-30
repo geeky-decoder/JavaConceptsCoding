@@ -19,5 +19,4 @@ public class CollectionsIterator {
             System.out.println(item);
         }
     }
-
 }
