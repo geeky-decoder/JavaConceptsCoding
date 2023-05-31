@@ -9,21 +9,6 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 
-/*
- * ArrayList is a default class in Java and comes from java.util package
- * It also behaves as a dynamic array
- * Order of insertion/retrival is maintained <<<<<>>>>>
- * It is not thread-safe/synchronized <<<<<<>>>>>>>
- * Size of ArrayList is increased as per the given formula below 
- * >>>> int newCapacity = oldCapacity + (oldCapacity >> 1);  i.e. by 1.5 times the original size <<<<<
- * Default size of ArrayList is 10 but this is virtual capacity reserved.
- * Actually you will have 0 size which will the physical capacity as soon as you declare an ArrayList in java.
- * Whenever there is some values added to ArrayList its Physical capacity increases and virtual capacity decreases.
- * Should use JAVA GENERICS while declaring an ArrayList so that java knows that it will contain only particular type of elements
- * <><><><><><><><><><> ALWAYS USE Interface<K,V> name = new ImplementedClassConstructor<>(); <><><><><><><><><><><><><><><>
- * for ex. List<String> list = new ArrayList<>();
- */
-
 class LearnArrayList {
 
     public final void waysToIterateArrayList(List<String> arrayList) {
@@ -165,7 +150,11 @@ class LearnArrayList {
         /*
          * Returns a view of the portion of this list between the specified fromIndex,
          * inclusive, and toIndex, exclusive.
-         * (If fromIndex and toIndex are equal, the returned list is empty.)
+         * (If fromIndex and toIndex are equal, the returned list is empty.
+         * >>>> Sublist doesn't create deep copy instead creates shallow copy(reference
+         * gets copied) <<<<
+         * Therefore any changes made to the list using sublist it will change the
+         * contents of the list which is getting sublist.
          */
         List<String> subList = new ArrayList<>(duplicateList.subList(2, 5));
         System.out.println(subList);
