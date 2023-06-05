@@ -1,5 +1,6 @@
 package List;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -42,6 +43,9 @@ class LearnLinkedList {
         System.out.println(listIterator.previous());
         System.out.println(listIterator.previous());
         System.out.println(listIterator.next());
+
+        // to convert linkedlist to array
+        System.out.println(Arrays.toString(linkedlist.toArray()));
 
     }
 }
