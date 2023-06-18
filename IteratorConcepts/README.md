@@ -31,13 +31,13 @@
 - With ArrayList use the Iterator as it contains elements in one direction but with LinkedList you can use ListIterator 
     just because it internally uses doubly linkedlist.
 
-interface ListIterator<E> extends Iterator<E> {
+`interface ListIterator<E> extends Iterator<E> {
     boolean hasNext()
     boolean hasPrevious()
     E next()
     E previous()
-}
+}`
 
 ## List provides two methods
->>>>>>  ListIterator<E> listIterator()
->>>>>>  ListIterator<E> listIterator(int index)
+- ListIterator<E> listIterator()
+- ListIterator<E> listIterator(int index)
