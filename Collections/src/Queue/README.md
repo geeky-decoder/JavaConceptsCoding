@@ -1,6 +1,6 @@
 ## Queue
-- Queue interface extends Collection interface
-- Follows FIFO(First In First Out)
+- Queue interface extends Collection interface.
+- Follows FIFO(First In First Out).
 
 ## Methods
 `[Avoid using as you need to handle the exceptions these methods throw]`
@@ -15,7 +15,7 @@
 
 ## Deque
 - Extends Queue interface to allow double ended queues.
-- Operations can be performed at both Head & Tail
+- Operations can be performed at both Head & Tail.
 - Can work as LIFO & FIFO both.
 - If you want to have Stack use `ARRAYDEQUE`
 
@@ -24,6 +24,18 @@
 
 ## Methods
 - Visit this for all the available methods (https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html)
+
+## PriorityQueue
+- It works on priority.
+- Implementation is based on priority heap, a tree like structure that yields element at the head of the queue according to the priority ordering which is either defined by natural ordering of its elements or by a comparator.
+- If some elements have same priority than one of the element is chosen arbitarily.
+- Elements are not sorted at all.
+- Elements could be removed by in priority order.
+- Travesing the priorityQueue is not recommended.
+
+## Methods
+- 
+
 
 ## Stack
 - 
