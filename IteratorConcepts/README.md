@@ -41,3 +41,7 @@
 ## List provides two methods
 - ListIterator<E> listIterator()
 - ListIterator<E> listIterator(int index)
+
+
+
+- Fail-Fast v/s Fail-Safe Iterators concepts (Imp)
