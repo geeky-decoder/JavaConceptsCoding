@@ -3,6 +3,8 @@
 - Collection interface extends the Iterable interface because each collection wants to use the methods of Iterator so 
     that each collection could be iterated for different usecases.
 
+  <img width="834" alt="Screenshot 2023-05-29 at 2 27 48 PM" src="https://github.com/geeky-decoder/JavaConceptsCoding/assets/110541205/0d392595-e61a-4e48-a83d-f4a49be40cb9">
+
 ## Collection Interface Methods
 - boolean addAll(Collection<? extends E> C)
 - boolean retainAll(Collection<?> C)
