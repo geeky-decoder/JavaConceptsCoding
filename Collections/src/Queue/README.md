@@ -33,15 +33,7 @@
 - Elements could be removed but in priority order.
 - Traversing the priorityQueue is not recommended.
 
-`Comparator Passed?`
-            |
-            |
-            | ----------> Yes `(Comparator's compare() method is executed)`
-            | ----------> No  `(Class implements Comparable?)` 
-                          |
-                          |
-                          |----------> Yes `(Comparable's compareTo() method is executed)`
-                          |----------> No  `(Class Cast Exception)`   
+  <img width="1213" alt="Screenshot 2023-07-01 at 10 25 23 PM" src="https://github.com/geeky-decoder/JavaConceptsCoding/assets/110541205/83d2f6f7-32ae-4693-9fbf-cab8fd211b27">
 
 ## Methods
 - Visit this for all the available methods (https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/PriorityQueue.html)
