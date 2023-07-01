@@ -89,10 +89,22 @@ class PriorityQueueConcepts {
         System.out.println(priorityListRevised);
 
     }
+
+    public void usePriorityQueueForIntegerClassWithComparator() {
+        // declaring priorityQueue with using Comparator for internal working and
+        // comparison i.e. now MyCustomComparator class ordering will be followed
+        Queue<Integer> priorityQueue = new PriorityQueue<>(new MyCustomComparator());
+    }
 }
 
 public class PriorityQueueCon {
     public static void main(String[] args) {
+
+        /*
+         * Ordering coming from the classes itself is called as -> Natural Ordering
+         * Ordering given from the Custom implementation is called as -> Total Ordering
+         * Precedence ---->>> Total Ordering > Natural Ordering
+         */
         PriorityQueueConcepts queueConcepts = new PriorityQueueConcepts();
         Queue<Integer> priorityQueue = new PriorityQueue<>();
         priorityQueue.offer(10);
@@ -116,5 +128,9 @@ public class PriorityQueueCon {
         // highest among each others using compareTo() method of COMPARABLE INTERFACE
         queueConcepts.usePriorityQueueForStudentMarksRevisedClassWithComparable();
 
+        // get me bottom 3 integers according to their values
+        // Comparison strategy provided to PriorityQueue so as to sort or get the
+        // highest among each others using compare() method of COMPARATOR INTERFACE in MyCustomComparator class
+        queueConcepts.usePriorityQueueForIntegerClassWithComparator();
     }
 }

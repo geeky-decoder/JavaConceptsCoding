@@ -43,5 +43,4 @@
 - ListIterator<E> listIterator(int index)
 
 
-
-- Fail-Fast v/s Fail-Safe Iterators concepts (Imp)
+## Fail-Fast v/s Fail-Safe Iterators concepts (Imp)

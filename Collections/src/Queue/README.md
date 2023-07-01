@@ -23,18 +23,28 @@
 - If you want to have normal queue use `LINKEDLIST`
 
 ## Methods
-- Visit this for all the available methods (https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html)
+- Visit this for all the available methods (https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html)
 
 ## PriorityQueue
 - It works on priority.
 - Implementation is based on priority heap, a tree like structure that yields element at the head of the queue according to the priority ordering which is either defined by natural ordering of its elements or by a comparator.
 - If some elements have same priority than one of the element is chosen arbitarily.
 - Elements are not sorted at all.
-- Elements could be removed by in priority order.
-- Travesing the priorityQueue is not recommended.
+- Elements could be removed but in priority order.
+- Traversing the priorityQueue is not recommended.
+
+`Comparator Passed?`
+            |
+            |
+            | ----------> Yes `(Comparator's compare() method is executed)`
+            | ----------> No  `(Class implements Comparable?)` 
+                          |
+                          |
+                          |----------> Yes `(Comparable's compareTo() method is executed)`
+                          |----------> No  `(Class Cast Exception)`   
 
 ## Methods
-- 
+- Visit this for all the available methods (https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/PriorityQueue.html)
 
 
 ## Stack
