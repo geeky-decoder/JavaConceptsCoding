@@ -93,7 +93,44 @@ class PriorityQueueConcepts {
     public void usePriorityQueueForIntegerClassWithComparator() {
         // declaring priorityQueue with using Comparator for internal working and
         // comparison i.e. now MyCustomComparator class ordering will be followed
+
+        // This is old way of passing custom class comparator's
         Queue<Integer> priorityQueue = new PriorityQueue<>(new MyCustomComparator());
+        priorityQueue.offer(10);
+        priorityQueue.offer(20);
+        priorityQueue.offer(30);
+        priorityQueue.offer(40);
+        priorityQueue.offer(50);
+        // Using Lambda expression to pass the comparator for comparison
+        Queue<Integer> lambdaPriorityQueue = new PriorityQueue<>((obj1, obj2) -> {
+            System.out.println("Lambda used comparator's compare() method is called");
+            return obj1 < obj2 ? -1 : ((obj1 == obj2 ? 0 : 1));
+        });
+        lambdaPriorityQueue.offer(10);
+        lambdaPriorityQueue.offer(20);
+        lambdaPriorityQueue.offer(30);
+        lambdaPriorityQueue.offer(40);
+        lambdaPriorityQueue.offer(50);
+
+        int index = 0;
+        List<Integer> priorityListRevised = new ArrayList<>();
+
+        /*
+         * !IMPORTANT
+         * Do not use iterator to interate over PriorityQueue because it will not give
+         * elements acc. to priority set
+         * Instead use isEmpty() to perform the required task
+         */
+        while (!lambdaPriorityQueue.isEmpty()) {
+            if (index == 3)
+                break;
+            priorityListRevised.add(lambdaPriorityQueue.poll());
+            index++;
+        }
+
+        System.out.println(priorityListRevised);
+        System.out.println(lambdaPriorityQueue);
+        ;
     }
 }
 
@@ -121,7 +158,7 @@ public class PriorityQueueCon {
         // get me top 3 students according to their maths marks
         // no comparison strategy is there for PriorityQueue to sort or get the highest
         // among each others
-        queueConcepts.usePriorityQueueForStudentMarksClassWithNoComparable();
+        // queueConcepts.usePriorityQueueForStudentMarksClassWithNoComparable();
 
         // get me top 3 students according to their maths marks
         // Comparison strategy provided to PriorityQueue so as to sort or get the
@@ -130,7 +167,8 @@ public class PriorityQueueCon {
 
         // get me bottom 3 integers according to their values
         // Comparison strategy provided to PriorityQueue so as to sort or get the
-        // highest among each others using compare() method of COMPARATOR INTERFACE in MyCustomComparator class
+        // highest among each others using compare() method of COMPARATOR INTERFACE in
+        // MyCustomComparator class
         queueConcepts.usePriorityQueueForIntegerClassWithComparator();
     }
 }
