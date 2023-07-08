@@ -46,3 +46,4 @@
 
 
 ## Fail-Fast v/s Fail-Safe Iterators concepts (Imp)
+![image](https://github.com/geeky-decoder/JavaConceptsCoding/assets/110541205/50234516-95a8-433b-8552-73abc55db23b)
