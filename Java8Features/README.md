@@ -55,6 +55,25 @@ arrList1.sort(String::compareToIgnoreCase);
 - Stream is not a data structure instead it takes input from Collections, Arrays and I/O channels.
 - Streams doesn't change the original data structures instead it just gives out the result based on the pipelined methods.
 
+`Operations performed`:
+- mapping       -> convert one type into other
+- filtering     -> remove some objects according to condition applied
+- flattening    -> converts into single streams from various other streams
+
+`Intermediate Operations`:
+- stateless     -> do not need a buffer to work. Ex.- map(), filter(), flatMap()
+- stateful      -> needs buffer to work. Ex.- sorted(), distinct()
+- ordering      -> needs to have order of elements by tracking their indexes. Ex.- limit(), skip()
+
+`Terminal Operations`:
+This operations is responsible for triggering of consuming data from the data sources.
+- Methods that will consume all the data from stream
+    - forEach(), max(), min(), count(), reduce(), toArray()
+
+- Methods that do not need to consume all the data from stream
+    - allMatch(), anyMatch(), findAny(), findFirst(), noneMatch()
+
+
 `Methods`:
 - filter()  -> used for conditiona check just like if-else.
 - forEach() -> used for interation just like loops.
@@ -90,9 +109,11 @@ arrList1.sort(String::compareToIgnoreCase);
 
 - distinct()
 
-- Collectors()
+- Collectors() 
+Performs 4 basic operations : Supply, Accumulate, Combine, Finisher
 
 - groupingBy()
+Groups the result based on some key and value and returns the Map.
 
 - partioningBy()
 
