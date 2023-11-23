@@ -20,7 +20,7 @@ public class ExceptionConcepts {
         } catch (UserDefinedCheckedException checkedException) {
             System.out.println(checkedException.getMessage());
         }
-        System.out.println("Hello, World!");
+        System.out.println("This is all about exception handling");
     }
 
 }
