@@ -50,4 +50,3 @@
 
 ## Comparator
 - Comparator interface should be implemented by the Comparator class itself.
-- It has compare(Object obj1, Object obj2) method with two arguments as it does not have its own main class for implementation`
