@@ -8,9 +8,37 @@ Ex.:- `() ->  {method_body};`
 
 
 ##  Functional Interface
-- Interface which contains only one abstract method but can have multiple default and static method.
-- For ex:- Runnable ->  run(), Callable ->  call(), Comparable  ->  compareTo(), Comparator ->  compare()
-- If you want to create your own functional interface annotate your interface with @FunctionalInterface.
+------------------------
+
+![Alt text](image-11.png)
+
+-------------------------
+
+![Alt text](image-12.png)
+
+-------------------------
+
+## Handle use cases when functional interface extends from other interfaces
+-----------------------------------------------------------------------------------------
+
+![Alt text](image-13.png)
+
+-------------------------
+
+![Alt text](image-14.png)
+
+>>>>>>>>>>>>>>>>
+
+![Alt text](image-15.png)
+
+-------------------------
+
+> Usecase 3 : Functionanl interface extending other functional interface
+>>>>>>>>>>>>>>>>
+
+![Alt text](image-16.png)
+
+>>>>>>>>>>>>>>>>>>>>>>>
 
 ## Consumer
 - A Consumer is an in-build functional interface in the java.util.function package. we use consumers when we need to consume objects, the consumer takes an input value and returns nothing. The consumer interface has two methods.
@@ -39,9 +67,11 @@ Ex.:- `() ->  {method_body};`
 
 ## Method Reference in Lambdas
 - Use ClassName::static method form to increase readability and write less code
+
 - For ex:- List<Integer> arrList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
 arrList.stream().forEach(System.out::println);
 arrList.stream().mapToInt(String::length).forEach(System.out::println);
+
 - List<String> arrList1 = Arrays.asList("hi", "bye", "hello", "vivek", "pandey");
 arrList1.sort(String::compareToIgnoreCase);
 
@@ -51,9 +81,18 @@ arrList1.sort(String::compareToIgnoreCase);
 
 
 ## Streams
-- Used to process collection of objects.
+- It is like a pipeline through which our collection/data elements passes.
 - Stream is not a data structure instead it takes input from Collections, Arrays and I/O channels.
-- Streams doesn't change the original data structures instead it just gives out the result based on the pipelined methods.
+- Streams doesn't change the original data structures instead it just gives out result based on the pipelined methods.
+- Used when deals with bulk processsing (can do parallel processing)
+
+- We can use multiple intermediate operations in between but the terminal operations is used once and its the final operation for gettign the result. 
+
+- **** Once the terminal operation is invoked it produces the output and also closes the stream.
+
+>>>>>>>>>>>>>>>>
+![Alt text](image-17.png)
+>>>>>>>>>>>>>>>>
 
 `Operations performed`:
 - mapping       -> convert one type into other
@@ -62,17 +101,25 @@ arrList1.sort(String::compareToIgnoreCase);
 
 `Intermediate Operations`:
 - stateless     -> do not need a buffer to work. Ex.- map(), filter(), flatMap()
-- stateful      -> needs buffer to work. Ex.- sorted(), distinct()
+- stateful      -> needs buffer to work. Ex.- sorted(), distinct(), peek()
 - ordering      -> needs to have order of elements by tracking their indexes. Ex.- limit(), skip()
 
 `Terminal Operations`:
 This operations is responsible for triggering of consuming data from the data sources.
 - Methods that will consume all the data from stream
-    - forEach(), max(), min(), count(), reduce(), toArray()
+    - forEach(), max(), min(), count(), reduce(), toArray(), collect
 
 - Methods that do not need to consume all the data from stream
     - allMatch(), anyMatch(), findAny(), findFirst(), noneMatch()
 
+>>>>>>>>>>>>>>>>>>>>
+## Different ways to create a stream
+>>>>>>>>>>>>>>>>>>>>
+
+![Alt text](image-18.png)
+![Alt text](image-19.png)
+
+>>>>>>>>>>>>>>>>>>>>
 
 `Methods`:
 - filter()  -> used for conditiona check just like if-else.
@@ -140,6 +187,8 @@ Groups the result based on some key and value and returns the Map.
 
 
 ## Parallel Streams
+
+![Alt text](image-20.png)
 
 ![Alt text](image-8.png)
 
