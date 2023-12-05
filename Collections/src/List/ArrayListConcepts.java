@@ -3,9 +3,15 @@ package List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 
@@ -13,7 +19,17 @@ class LearnArrayList {
 
     public final void waysToIterateArrayList(List<String> arrayList) {
         int sizeOfList = arrayList.size();
+        
 
+        List<String> list = new ArrayList<>();
+        Queue<String> queue = new PriorityQueue<>();
+        Set<String> set = new HashSet<>();
+
+        list.add("");
+        set.add("");
+        queue.add("");
+
+        
         /*
          * using normal for-loop
          */
