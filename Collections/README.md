@@ -11,6 +11,8 @@
 - `Group of objects` present in `java.util` package.
 - Prior to collection framework we were having Arrays, Vector, HashTables but the problem was that we were not having common interface and it was difficult to remember different methods of those.
 
+![Alt text](image-4.png)
+
 ----------------------
 ![Alt text](image.png)
 ----------------------
