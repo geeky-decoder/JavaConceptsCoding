@@ -3,9 +3,8 @@ public class EvenOddNumbersClass {
     private static int counter = 0;
     private static int sequenceSize = 5;
 
-    public void evenNumberMethod() {
-        synchronized(this) {
-            while (counter < sequenceSize) {
+    public synchronized void evenNumberMethod() {
+        while (counter < sequenceSize) {
             while (counter % 2 == 0) {
                 System.out.println(counter + " is an even number");
                 try {
@@ -17,23 +16,20 @@ public class EvenOddNumbersClass {
             counter++;
             notify();
         }
-        }
     }
 
-    public void oddNumberMethod() {
-        synchronized (this) {
-            while (counter < sequenceSize) {
-                while (counter % 2 != 0) {
-                    System.out.println(counter + " is an odd number");
-                    try {
-                        wait();
-                    } catch (Exception exception) {
-                        // handle
-                    }
+    public synchronized void oddNumberMethod() {
+        while (counter < sequenceSize) {
+            while (counter % 2 != 0) {
+                System.out.println(counter + " is an odd number");
+                try {
+                    wait();
+                } catch (Exception exception) {
+                    // handle
                 }
-                counter++;
-                notify();
             }
+            counter++;
+            notify();
         }
     }
 }
