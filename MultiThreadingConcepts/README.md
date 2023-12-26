@@ -1,5 +1,6 @@
 ## MultiTasking v/s MultiThreading
 ----------------------------------
+
 - In multitasking no resources are shared, they work separately but in mutlithreading resources are being shared so that they can work parallely.
 
 >>>>>>>>>>>>>>>>>
@@ -38,6 +39,7 @@
 
 ## Basics of Thread
 -------------------
+
 - ### Ways of creating Thread
   ---------------------------  
 
@@ -84,14 +86,12 @@
 
 ![Alt text](image-17.png)
 
-
 ## Locks and Semaphores
 -----------------------
 
 - Locking does not depend on Objects as like synchronize method.
 
 - We have await() [same as wait()]  and signal() [same as notify()] method for working with different kinds of locks in inter-thread communication.
-
 
 ![Alt text](image-20.png)
 
@@ -132,13 +132,13 @@
 ![Alt text](image-48.png)
 ![Alt text](image-49.png)
 
-
 - - ### ABA Problem with CAS
 ----------------------------
 
 ![Alt text](image-45.png)
 
 - #### Exapmle and problem
+
 - To demonstrate the problem via a practical example, let’s consider a simple bank account class, where an integer variable holds the amount of the actual balance. We also have two functions: one for withdrawals and one for deposits. These operations use CAS to decrease and increase the balance of the account.
 
 - Let’s think about a multithreaded scenario when Thread 1 and Thread 2 are operating on the same bank account. When Thread 1 wants to withdraw some money, it reads the actual balance to use that value for comparing the amount in the CAS operation later. However, for some reason, Thread 1 is a bit slow — maybe it’s blocked.
@@ -167,5 +167,61 @@ Once Thread 1 resumes, it will appear as if nothing has changed, and CAS will su
 
 ![Alt text](image-42.png)
 
+>>>>>>>>>>>>>>>>>>>>>>>>>
+
+## Thread Pools and ThreadPoolExecutor
+--------------------------------------
+
+- Comes from `package java.util.concurrent`
+
+![Alt text](image-52.png)
+![Alt text](image-53.png)
+![Alt text](image-54.png)
+------------------------
+
+![Alt text](image-55.png)
+![Alt text](image-56.png)
+![Alt text](image-57.png)
+------------------------
+
+![Alt text](image-58.png)
 
 
+## Future
+---------
+
+![Alt text](image-59.png)
+![Alt text](image-60.png)
+![Alt text](image-61.png)
+
+>>>>>>>>>>>>>>>>>>>>>>>>>
+
+## CompletableFuture
+--------------------
+
+![Alt text](image-64.png)
+![Alt text](image-65.png)
+![Alt text](image-66.png)
+![Alt text](image-67.png)
+![Alt text](image-68.png)
+![Alt text](image-69.png)
+![Alt text](image-70.png)
+
+>>>>>>>>>>>>>>>>>>>>>>>>>
+
+## Callable
+-----------
+
+![Alt text](image-62.png)
+![Alt text](image-63.png)
+
+>>>>>>>>>>>>>>>>>>>>>>>>>
+
+## Fork/Join Pool, Single, Fixed, CachedPool
+--------------------------------------------
+
+![Alt text](image-71.png)
+![Alt text](image-72.png)
+![Alt text](image-73.png)
+![Alt text](image-74.png)
+![Alt text](image-75.png)
